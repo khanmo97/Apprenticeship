@@ -1,21 +1,21 @@
 const express = require('express')
-const bodyParser = require( 'body-parser' )
+const bodyParser = require('body-parser')
 const app = express()
 
-app.use( function ( req, res, next ) {
+app.use(function(req, res, next) {
 	res.setHeader( 'Access-Control-Allow-Origin', 'http://localhost:3000' );
 	res.setHeader( 'Access-Control-Allow-Methods', 'POST' );
 	res.setHeader( 'Access-Control-Allow-Headers', 'Content-Type' );
 	next();
 });
-app.use( ( req, res, next ) => {
-	if ( !req.is( 'json' ) ) {
-		res.sendStatus( 415 );
+app.use((req, res, next) => {
+	if (!req.is( 'json')) {
+		res.sendStatus(415);
 	} else {
 		next();
 	}
 });
-app.use( bodyParser.json() )
+app.use(bodyParser.json())
 app.post('/test', (req, res, next) => {
 	if (!req.body.hasOwnProperty('string_to_cut')) {
 		next({
@@ -23,16 +23,14 @@ app.post('/test', (req, res, next) => {
 			statusCode: 400,
 			status: 400,
 			body: req.body,
-			type: "missing.property.string_to_cut"
+			type: 'missing.property.string_to_cut'
 		});
 	} else {
-		let return_string = "";
-		for (i = 2; i < req.body.string_to_cut.length; i+=3)
-		{
+		let return_string = '';
+		for (let i = 2; i < req.body.string_to_cut.length; i += 3) {
 			return_string += req.body.string_to_cut.charAt(i)
 		}
-
-		res.status(201);
+		res.status(200);
 		res.send({return_string});
 	}
 });
