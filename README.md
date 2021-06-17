@@ -1,10 +1,10 @@
-#Apprenticeship
+# Apprenticeship
 Apprenticeship problem. Using Javscript, POST request with "/test" that takes in one argument, a string that needs to be modified.
 It will then return JSON object that contains every third letter from the string that was passed in. 
 
 
-#Running the Server
-From terminal, run the following commands:
+# Running the Server
+## From terminal, run the following commands:
 ```NodeJs
 git clone https://github.com/khanmo97/Apprenticeship.git
 cd Apprenticeship
@@ -14,8 +14,8 @@ node app.js
 
 
 
-#Testing
-To test with Jest, run the following:
+# Testing
+## To test with Jest, run the following:
 ```NodeJs
 npm test
 ```
